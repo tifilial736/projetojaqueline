@@ -4,15 +4,17 @@
     <meta charset="UTF-8">
     <title>Lista de Produtos</title>
     <link rel="stylesheet" th:href="@{/css/style.css}">
-
 </head>
 <body>
 <div th:replace="fragments/header :: body"></div>
 
 <h2>Produtos</h2>
-<a th:href="@{/produtos/novo}">Novo Produto</a> |
-<a th:href="@{/produtos/top-caros}">Top 5 Mais Caros</a> |
-<a th:href="@{/produtos/estoque-baixo}">Estoque Baixo</a>
+
+<div style="text-align: center; margin: 20px 0;">
+    <a th:href="@{/produtos/novo}">Novo Produto</a>
+    <a th:href="@{/produtos/top-caros}">Top 5 Mais Caros</a>
+    <a th:href="@{/produtos/estoque-baixo}">Estoque Baixo</a>
+</div>
 
 <form th:action="@{/produtos}" method="get">
     <input type="text" name="nome" placeholder="Buscar por nome"/>
@@ -25,7 +27,7 @@
     <button type="submit">Filtrar</button>
 </form>
 
-<table border="1">
+<table>
     <thead>
     <tr>
         <th>ID</th>

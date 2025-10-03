@@ -1,159 +1,384 @@
-/* Reset básico */
+/* Reset e configurações globais */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Arial, Helvetica, sans-serif;
 }
 
-/* Layout principal */
 body {
-    background: #f8f9fa;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
     color: #333;
-    line-height: 1.5;
-    padding-bottom: 50px;
+    line-height: 1.6;
 }
 
 .container {
-    width: 90%;
-    max-width: 1100px;
-    margin: 20px auto;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
 }
 
-/* Cabeçalho */
+/* Header e Navegação */
 header {
-    background: #343a40;
-    padding: 15px;
-    margin-bottom: 20px;
+    background: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    backdrop-filter: blur(10px);
+}
+
+header nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px 20px;
+    flex-wrap: wrap;
+    gap: 10px;
 }
 
 header nav a {
-    color: #fff;
+    color: #667eea;
     text-decoration: none;
-    margin-right: 15px;
-    font-weight: bold;
-    transition: color 0.2s ease-in-out;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    position: relative;
 }
 
 header nav a:hover {
-    color: #0dcaf0;
+    background: #667eea;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
 }
 
 /* Títulos */
 h2 {
-    margin-bottom: 15px;
-    color: #222;
+    color: white;
+    font-size: 2rem;
+    margin: 30px 0 20px 0;
+    text-align: center;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+h4, h5 {
+    color: white;
+    margin: 20px 0 15px 0;
 }
 
 /* Formulários */
 form {
-    background: #fff;
-    padding: 20px;
-    border: 1px solid #ddd;
-    border-radius: 6px;
-    margin-bottom: 20px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    margin: 20px auto;
 }
 
-form label {
+label {
     display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
+    margin-bottom: 8px;
+    color: #555;
+    font-weight: 600;
+    font-size: 0.95rem;
 }
 
-form input, form select, form button {
-    margin-bottom: 15px;
-    padding: 8px 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+input[type="text"],
+input[type="email"],
+input[type="number"],
+input[type="date"],
+select,
+textarea {
     width: 100%;
+    padding: 12px 15px;
+    margin-bottom: 20px;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    font-family: inherit;
 }
 
-form button {
-    width: auto;
-    background: #198754;
-    color: #fff;
-    border: none;
-    cursor: pointer;
-    transition: background 0.2s ease-in-out;
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="number"]:focus,
+input[type="date"]:focus,
+select:focus,
+textarea:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
 }
 
-form button:hover {
-    background: #146c43;
+input[type="hidden"] {
+    display: none;
 }
 
-/* Links de ação (Editar e Excluir) */
-.action-link {
-    background: none;
-    border: none;
-    color: #0d6efd; /* azul para editar */
-    cursor: pointer;
-    text-decoration: underline;
-    font-size: 14px;
-    padding: 0;
-}
-
-.action-link:hover {
-    color: #0a58ca;
-}
-
-.action-link-danger {
-    color: #dc3545; /* vermelho para excluir */
-}
-
-.action-link-danger:hover {
-    color: #bb2d3b;
-}
-
-/* Botões extras */
-.btn {
-    display: inline-block;
-    padding: 6px 12px;
-    border-radius: 4px;
-    text-decoration: none;
+/* Botões */
+button,
+a.btn,
+input[type="submit"] {
+    background: #667eea;
     color: white;
-    font-size: 14px;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+    margin: 5px;
 }
 
-.btn-primary { background: #0d6efd; }
-.btn-primary:hover { background: #0a58ca; }
+button:hover,
+a.btn:hover,
+input[type="submit"]:hover {
+    background: #5568d3;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+}
 
-.btn-warning { background: #ffc107; color: #000; }
-.btn-warning:hover { background: #e0a800; }
+button[type="submit"] {
+    background: #48bb78;
+}
 
-.btn-danger { background: #dc3545; }
-.btn-danger:hover { background: #bb2d3b; }
+button[type="submit"]:hover {
+    background: #38a169;
+}
 
-.btn-secondary { background: #6c757d; }
-.btn-secondary:hover { background: #565e64; }
+/* Links e botões de ação */
+a {
+    color: #667eea;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+form a,
+a:not(nav a):not(.btn) {
+    background: #f7fafc;
+    color: #667eea;
+    padding: 12px 24px;
+    border-radius: 8px;
+    border: 2px solid #667eea;
+    display: inline-block;
+    margin: 5px;
+    font-weight: 600;
+}
+
+form a:hover,
+a:not(nav a):not(.btn):hover {
+    background: #667eea;
+    color: white;
+}
 
 /* Tabelas */
 table {
     width: 100%;
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    margin: 20px 0;
     border-collapse: collapse;
-    margin-top: 10px;
-    background: #fff;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
 }
 
-table th, table td {
-    padding: 10px;
+thead {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+}
+
+thead th {
+    padding: 15px;
     text-align: left;
-    border: 1px solid #ddd;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 0.5px;
 }
 
-table th {
-    background: #343a40;
-    color: #fff;
+tbody tr {
+    border-bottom: 1px solid #e0e0e0;
+    transition: background 0.2s ease;
 }
 
-table tr:nth-child(even) {
-    background: #f2f2f2;
+tbody tr:hover {
+    background: #f7fafc;
+}
+
+tbody tr:last-child {
+    border-bottom: none;
+}
+
+td {
+    padding: 15px;
+    color: #555;
+}
+
+td form {
+    display: inline;
+    padding: 0;
+    margin: 0;
+    background: none;
+    box-shadow: none;
+}
+
+td button {
+    padding: 8px 16px;
+    font-size: 0.9rem;
+    margin: 2px;
+}
+
+td button[type="submit"] {
+    background: #f56565;
+}
+
+td button[type="submit"]:hover {
+    background: #e53e3e;
+}
+
+td a {
+    padding: 8px 16px;
+    font-size: 0.9rem;
+    background: #667eea;
+    color: white;
+    border: none;
+}
+
+td a:hover {
+    background: #5568d3;
+}
+
+/* Formulários de busca/filtro */
+form[action*="buscar"],
+form[action*="filtrar"],
+form[method="get"] {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+form[action*="buscar"] input,
+form[action*="buscar"] select,
+form[action*="filtrar"] input,
+form[action*="filtrar"] select,
+form[method="get"] input,
+form[method="get"] select {
+    flex: 1;
+    min-width: 150px;
+    margin-bottom: 0;
+}
+
+form[action*="buscar"] button,
+form[action*="filtrar"] button,
+form[method="get"] button {
+    flex-shrink: 0;
 }
 
 /* Mensagens de erro */
+div[style*="color:red"],
 .error {
-    color: red;
-    font-weight: bold;
+    background: #fed7d7;
+    color: #c53030;
+    padding: 15px;
+    border-radius: 8px;
+    margin: 20px auto;
+    max-width: 600px;
+    border-left: 4px solid #e53e3e;
+}
+
+/* Seção de relatórios */
+.mt-3 {
+    margin-top: 20px;
+}
+
+.mb-2 {
     margin-bottom: 10px;
+}
+
+hr {
+    border: none;
+    border-top: 2px solid rgba(255, 255, 255, 0.3);
+    margin: 30px 0;
+}
+
+/* Botões de informação */
+.btn-info {
+    background: #4299e1;
+}
+
+.btn-info:hover {
+    background: #3182ce;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    form {
+        padding: 20px;
+    }
+
+    table {
+        font-size: 0.9rem;
+    }
+
+    thead th,
+    td {
+        padding: 10px;
+    }
+
+    header nav {
+        flex-direction: column;
+    }
+
+    header nav a {
+        width: 100%;
+        text-align: center;
+    }
+
+    form[action*="buscar"],
+    form[action*="filtrar"],
+    form[method="get"] {
+        flex-direction: column;
+    }
+
+    form[action*="buscar"] input,
+    form[action*="buscar"] select,
+    form[action*="filtrar"] input,
+    form[action*="filtrar"] select,
+    form[method="get"] input,
+    form[method="get"] select {
+        width: 100%;
+    }
+}
+
+/* Animações suaves */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+form, table {
+    animation: fadeIn 0.5s ease;
 }

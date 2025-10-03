@@ -4,15 +4,18 @@
     <meta charset="UTF-8">
     <title>Lista de Vendas</title>
     <link rel="stylesheet" th:href="@{/css/style.css}">
-
 </head>
 <body>
 <div th:replace="fragments/header :: body"></div>
 
 <h2>Vendas</h2>
-<a th:href="@{/vendas/nova}">Registrar Venda</a>
 
-<table border="1">
+<div style="text-align: center; margin: 20px 0;">
+    <a th:href="@{/vendas/nova}">Registrar Venda</a>
+</div>
+
+<table>
+    <thead>
     <tr>
         <th>ID</th>
         <th>Produto</th>
@@ -20,18 +23,21 @@
         <th>Data</th>
         <th>Ações</th>
     </tr>
+    </thead>
+    <tbody>
     <tr th:each="venda : ${vendas}">
         <td th:text="${venda.id}"></td>
         <td th:text="${venda.produto.nome}"></td>
         <td th:text="${venda.quantidadeVendida}"></td>
         <td th:text="${venda.dataVenda}"></td>
         <td>
-            <form th:action="@{'/vendas/' + ${venda.id} + '/excluir'}" method="post">
+            <form th:action="@{'/vendas/' + ${venda.id} + '/excluir'}" method="post" style="display:inline;">
                 <input type="hidden" name="_method" value="delete"/>
-                <button type="submit">Excluir</button>
+                <button type="submit" onclick="return confirm('Deseja excluir esta venda?')">Excluir</button>
             </form>
         </td>
     </tr>
+    </tbody>
 </table>
 </body>
 </html>

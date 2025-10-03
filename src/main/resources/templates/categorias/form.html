@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <title>Formulário Categoria</title>
     <link rel="stylesheet" th:href="@{/css/style.css}">
-
 </head>
 <body>
 <div th:replace="fragments/header :: body"></div>
@@ -13,9 +12,12 @@
 
 <form th:action="@{/categorias/salvar}" th:object="${categoria}" method="post">
     <input type="hidden" th:field="*{id}" />
-    Nome: <input type="text" th:field="*{nome}" />
-    <br><br>
+    
+    <label for="nome">Nome:</label>
+    <input type="text" id="nome" th:field="*{nome}" required/>
+    
     <button type="submit">Salvar</button>
+    <a th:href="@{/categorias}">Cancelar</a>
 </form>
 </body>
 </html>

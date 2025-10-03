@@ -4,31 +4,28 @@
     <meta charset="UTF-8">
     <title>Registrar Venda</title>
     <link rel="stylesheet" th:href="@{/css/style.css}">
-
 </head>
 <body>
 <div th:replace="fragments/header :: body"></div>
 
 <h2>Registrar Venda</h2>
 
-<div th:if="${error}" style="color:red;">
+<div th:if="${error}" class="error">
     <p th:text="${error}"></p>
 </div>
 
 <form th:action="@{/vendas/salvar}" th:object="${venda}" method="post">
-    <label>Produto:</label>
-    <select name="produtoId" required>
+    <label for="produtoId">Produto:</label>
+    <select id="produtoId" name="produtoId" required>
+        <option value="">Selecione um produto</option>
         <option th:each="p : ${produtos}" th:value="${p.id}" th:text="${p.nome}"></option>
     </select>
-    <br/><br/>
 
-    <label>Quantidade:</label>
-    <input type="number" th:field="*{quantidadeVendida}" min="1" required />
-    <br/><br/>
+    <label for="quantidadeVendida">Quantidade:</label>
+    <input type="number" id="quantidadeVendida" th:field="*{quantidadeVendida}" min="1" required />
 
-    <label>Data da Venda:</label>
-    <input type="date" th:field="*{dataVenda}" />
-    <br/><br/>
+    <label for="dataVenda">Data da Venda:</label>
+    <input type="date" id="dataVenda" th:field="*{dataVenda}" />
 
     <button type="submit">Salvar</button>
     <a th:href="@{/vendas}">Cancelar</a>
