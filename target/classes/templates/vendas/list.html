@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Vendas</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+
+</head>
+<body>
+<div th:replace="fragments/header :: body"></div>
+
+<h2>Vendas</h2>
+<a th:href="@{/vendas/nova}">Registrar Venda</a>
+
+<table border="1">
+    <tr>
+        <th>ID</th>
+        <th>Produto</th>
+        <th>Quantidade</th>
+        <th>Data</th>
+        <th>Ações</th>
+    </tr>
+    <tr th:each="venda : ${vendas}">
+        <td th:text="${venda.id}"></td>
+        <td th:text="${venda.produto.nome}"></td>
+        <td th:text="${venda.quantidadeVendida}"></td>
+        <td th:text="${venda.dataVenda}"></td>
+        <td>
+            <form th:action="@{'/vendas/' + ${venda.id} + '/excluir'}" method="post">
+                <input type="hidden" name="_method" value="delete"/>
+                <button type="submit">Excluir</button>
+            </form>
+        </td>
+    </tr>
+</table>
+</body>
+</html>

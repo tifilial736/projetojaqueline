@@ -1,0 +1,159 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Layout principal */
+body {
+    background: #f8f9fa;
+    color: #333;
+    line-height: 1.5;
+    padding-bottom: 50px;
+}
+
+.container {
+    width: 90%;
+    max-width: 1100px;
+    margin: 20px auto;
+}
+
+/* Cabeçalho */
+header {
+    background: #343a40;
+    padding: 15px;
+    margin-bottom: 20px;
+}
+
+header nav a {
+    color: #fff;
+    text-decoration: none;
+    margin-right: 15px;
+    font-weight: bold;
+    transition: color 0.2s ease-in-out;
+}
+
+header nav a:hover {
+    color: #0dcaf0;
+}
+
+/* Títulos */
+h2 {
+    margin-bottom: 15px;
+    color: #222;
+}
+
+/* Formulários */
+form {
+    background: #fff;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+form input, form select, form button {
+    margin-bottom: 15px;
+    padding: 8px 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 100%;
+}
+
+form button {
+    width: auto;
+    background: #198754;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: background 0.2s ease-in-out;
+}
+
+form button:hover {
+    background: #146c43;
+}
+
+/* Links de ação (Editar e Excluir) */
+.action-link {
+    background: none;
+    border: none;
+    color: #0d6efd; /* azul para editar */
+    cursor: pointer;
+    text-decoration: underline;
+    font-size: 14px;
+    padding: 0;
+}
+
+.action-link:hover {
+    color: #0a58ca;
+}
+
+.action-link-danger {
+    color: #dc3545; /* vermelho para excluir */
+}
+
+.action-link-danger:hover {
+    color: #bb2d3b;
+}
+
+/* Botões extras */
+.btn {
+    display: inline-block;
+    padding: 6px 12px;
+    border-radius: 4px;
+    text-decoration: none;
+    color: white;
+    font-size: 14px;
+}
+
+.btn-primary { background: #0d6efd; }
+.btn-primary:hover { background: #0a58ca; }
+
+.btn-warning { background: #ffc107; color: #000; }
+.btn-warning:hover { background: #e0a800; }
+
+.btn-danger { background: #dc3545; }
+.btn-danger:hover { background: #bb2d3b; }
+
+.btn-secondary { background: #6c757d; }
+.btn-secondary:hover { background: #565e64; }
+
+/* Tabelas */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+    background: #fff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+table th, table td {
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+table th {
+    background: #343a40;
+    color: #fff;
+}
+
+table tr:nth-child(even) {
+    background: #f2f2f2;
+}
+
+/* Mensagens de erro */
+.error {
+    color: red;
+    font-weight: bold;
+    margin-bottom: 10px;
+}

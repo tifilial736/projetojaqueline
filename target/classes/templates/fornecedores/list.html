@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Lista de Fornecedores</title>
+    <meta charset="UTF-8"/>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+
+</head>
+<body>
+
+<div th:replace="fragments/header :: body"></div>
+<h2>Fornecedores</h2>
+
+
+
+<a th:href="@{/fornecedores/novo}">Novo Fornecedor</a>
+<br/><br/>
+
+<form th:action="@{/fornecedores/buscar}" method="get">
+    <input type="text" name="nome" placeholder="Buscar por nome"/>
+    <button type="submit">Buscar</button>
+</form>
+
+
+<table border="1">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Nome</th>
+        <th>CNPJ</th>
+        <th>Telefone</th>
+        <th>Email</th>
+        <th>Ações</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="fornecedor : ${fornecedores}">
+        <td th:text="${fornecedor.id}"></td>
+        <td th:text="${fornecedor.nome}"></td>
+        <td th:text="${fornecedor.cnpj}"></td>
+        <td th:text="${fornecedor.telefone}"></td>
+        <td th:text="${fornecedor.email}"></td>
+        <td>
+            <a th:href="@{|/fornecedores/${fornecedor.id}/editar|}">Editar</a>
+
+            <form th:action="@{|/fornecedores/${fornecedor.id}/excluir|}"
+                  method="post"
+                  style="display:inline">
+                <input type="hidden" name="_method" value="delete"/>
+                <button type="submit" onclick="return confirm('Deseja excluir este fornecedor?')">
+                    Excluir
+                </button>
+            </form>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

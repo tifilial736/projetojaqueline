@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/header :: head">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+
+</head>
+<body>
+<div th:replace="fragments/header :: header"></div>
+<div class="container">
+    <h2>Relatórios</h2>
+
+    <h4>Vendas entre datas</h4>
+    <form th:action="@{/vendas/relatorios}" method="get">
+        Data Início: <input type="date" name="start" />
+        Data Fim: <input type="date" name="end" />
+        <button type="submit">Filtrar</button>
+    </form>
+
+
+    <div th:if="${vendas != null}">
+        <h5 class="mt-3">Resultados</h5>
+        <table class="table">
+            <thead><tr><th>ID</th><th>Produto</th><th>Qtd</th><th>Data</th></tr></thead>
+            <tbody>
+            <tr th:each="v : ${vendas}">
+                <td th:text="${v.id}"></td>
+                <td th:text="${v.produto != null ? v.produto.nome : '—'}"></td>
+                <td th:text="${v.quantidadeVendida}"></td>
+                <td th:text="${v.dataVenda}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <hr/>
+    <h4>Total vendido por produto </h4>
+    <a class="btn btn-info mb-2" th:href="@{/vendas/total-por-produto}">Atualizar</a>
+    <div th:if="${totais != null}">
+        <table class="table">
+            <thead><tr><th>Produto</th><th>Total Vendido</th></tr></thead>
+            <tbody>
+            <tr th:each="row : ${totais}">
+                <td th:text="${row[0]}"></td>
+                <td th:text="${row[1]}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+</body>
+</html>
